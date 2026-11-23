@@ -3,7 +3,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api import companies, health
+from app.api import articles, companies, health
 from app.config import get_settings
 from app.db import apply_schema, create_pool
 from app.seed import seed_companies
@@ -20,7 +20,7 @@ async def lifespan(app: FastAPI):
     pool.close()
 
 
-app = FastAPI(title="MarketRadar API", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="MarketRadar API", version="0.2.0", lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
@@ -31,3 +31,4 @@ app.add_middleware(
 
 app.include_router(health.router)
 app.include_router(companies.router)
+app.include_router(articles.router)

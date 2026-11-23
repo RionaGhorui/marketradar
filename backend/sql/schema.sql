@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS tracked_companies (
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
+ALTER TABLE tracked_companies ADD COLUMN IF NOT EXISTS blog_feed TEXT;
+
 CREATE TABLE IF NOT EXISTS articles (
     id BIGSERIAL PRIMARY KEY,
     url TEXT NOT NULL UNIQUE,
