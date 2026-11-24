@@ -1,5 +1,7 @@
 from psycopg_pool import ConnectionPool
 
+from app.embeddings import vector_literal
+
 INSERT_ARTICLE = """
 INSERT INTO articles
     (url, title, source, published_at, content, company_id, event_type, summary, embedding)
@@ -8,12 +10,6 @@ VALUES
      %(company_id)s, %(event_type)s, %(summary)s, %(embedding)s::vector)
 ON CONFLICT (url) DO NOTHING
 """
-
-
-def vector_literal(values: list[float] | None) -> str | None:
-    if values is None:
-        return None
-    return "[" + ",".join(f"{value:.6f}" for value in values) + "]"
 
 
 def load_companies(pool: ConnectionPool) -> list[dict]:

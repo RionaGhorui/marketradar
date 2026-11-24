@@ -13,6 +13,7 @@ RUN python -c "from fastembed import TextEmbedding; m = TextEmbedding('BAAI/bge-
 
 COPY app ./app
 COPY etl ./etl
+COPY mcp_server ./mcp_server
 COPY sql ./sql
 
 EXPOSE 8000

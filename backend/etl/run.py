@@ -6,8 +6,8 @@ import openai
 
 from app.config import get_settings
 from app.db import apply_schema, create_pool
+from app.embeddings import Embedder
 from app.seed import seed_companies
-from etl.embedder import Embedder
 from etl.pipeline import Pipeline
 from etl.sources import fetch_all
 from etl.storage import LocalRawStore

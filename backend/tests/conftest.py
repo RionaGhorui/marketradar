@@ -4,7 +4,7 @@ from urllib.parse import urlsplit, urlunsplit
 import psycopg
 import pytest
 
-DEFAULT_URL = "postgresql://marketradar:marketradar@localhost:5433/marketradar"
+DEFAULT_URL = "postgresql://marketradar:marketradar@127.0.0.1:5433/marketradar"
 TEST_DATABASE = "marketradar_test"
 
 

@@ -4,7 +4,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    database_url: str = "postgresql://marketradar:marketradar@localhost:5433/marketradar"
+    database_url: str = "postgresql://marketradar:marketradar@127.0.0.1:5433/marketradar"
     allowed_origins: str = "http://localhost:3000,http://127.0.0.1:5500"
 
     llm_api_key: str = ""
